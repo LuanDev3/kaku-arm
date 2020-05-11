@@ -13,25 +13,25 @@ def joint_publisher():
     while not rospy.is_shutdown():
         p1, p2 = JointTrajectoryPoint(), JointTrajectoryPoint()
         p1.positions = [120]
-        p2.positions = [220]
+        #p2.positions = [220]
         trajectory_msg = JointTrajectory()
-        trajectory_msg.joint_names = ["Elbow", 'Shoulder']
-        trajectory_msg.points = [p1, p2]
+        trajectory_msg.joint_names = ["Wrist"]
+        trajectory_msg.points = [p1]
 
         pub.publish(trajectory_msg)
         print 'published command'
         rate.sleep()
 
-        p1, p2 = JointTrajectoryPoint(), JointTrajectoryPoint()
-        p1.positions = [230]
-        p2.positions = [120]
-        trajectory_msg = JointTrajectory()
-        trajectory_msg.joint_names = ["Elbow", 'Shoulder']
-        trajectory_msg.points = [p1, p2]
+        # p1, p2 = JointTrajectoryPoint(), JointTrajectoryPoint()
+        # p1.positions = [230]
+        # p2.positions = [120]
+        # trajectory_msg = JointTrajectory()
+        # trajectory_msg.joint_names = ["Elbow", 'Shoulder']
+        # trajectory_msg.points = [p1, p2]
 
-        pub.publish(trajectory_msg)
-        print 'published command'
-        rate.sleep()
+        # pub.publish(trajectory_msg)
+        # print 'published command'
+        # rate.sleep()
 
 if __name__ == '__main__':
     try:
